@@ -1,13 +1,188 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<meta charset="UTF-8">
+<title>SOLVE</title>
+<link rel="stylesheet" href="css/penetration.css" />
+<script type="text/javascript" src="js/penetration.js"></script>
+<link href="css/mathstyle.css" rel="stylesheet" /><!--Stylesheet to display Math functions -->
+<script>
+var simsubscreennum=0;
+var temp=0;
+ var data = [[1,0,85,85],
+			[2,0,65,65], 
+			[3,0,86,86],
+			[4,0,70,70],
+			[5,0,83,83], 
+			[6,0,80,80]];
+			
+var data = [[80,82,85,84,86],
+			[70,72,75,78,71],
+			[65,63,64,67,68]];
+			
+var data1 = new Array();
+var k = new Array();
+// var box = document.querySelector(".simscreen"); 
+// document.querySelector(".simscreen").addEventListener("onclick", updateDisplay, false); 
+// alert(event.pageY); 
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
-</body>
+// function updateDisplay(event) { 
+// alert(event.pageX); 
+// } 
+
+// function getLoc(event,ht){
+//  alert(event.pageX);
+// }
+
+</script>
+</head>
+
+<body style="margin:0; font-family:verdana;">
+<div id="simscreen">
+<div id="title"><h3>PENETRATION TEST ON BITUMEN</h3></div>
+
+<div class="simsubscreen" id="canvas0" >
+<h4 class="incanvas">Objective:</h4>
+<p class="incanvas" style="font-size:14px;">To determine consistency of bitumen or the grade of the bitumen by penetration test.</p><br/>
+<h4 class="incanvas">Apparatus used:</h4>
+<p class="incanvas" style="font-size:14px;">Penetration Setup, Mould, Needle, Bunsen Burner, Water Bath.</p>
+<img style="position:absolute; left:500px; top:100px;max-width:20%;width:100%;" src="images/man.png" />
+<img style="position:absolute; left:100px; top:280px;cursor:pointer;" src="images/table2.png" />
+<img style="position:absolute; left:150px; top:120px;width:16%;cursor:pointer;" title="Penetration Setup" src="images/main.png" />
+<img style="position:absolute; left:300px; top:330px;cursor:pointer;max-width:8%;width:100%;" title="Mould" src="images/mould.png" />
+<img style="position:absolute; left:400px; top:320px;cursor:pointer;max-height:8%;height:100%;transform: rotate(30deg)" title="Needle" src="images/aparatusNeedle.png" />
+<br>&nbsp;<span class="tooltip" style="border-bottom:1px dotted ; color:red;text-align:justify">Description
+	<span class="tooltiptext">
+	<strong style="color:red">Penetration Test</strong>: is the most commonly adopted test on bitumen to determine the grade of material in terms of its hardness because of its simplicity.</strong>
+	</span>
+	</span>
+</div>
+
+<div class="simsubscreen" id="canvas1" style="visibility:hidden;" >
+	<strong class="incanvas">STEP</strong>
+	<span class="circlebg">&nbsp;1&nbsp;</span>
+	<p class="steptext">&nbsp;The bituminous material is heated to a pouring temperature and is poured to the mould.</p>
+	<img id="can1-1" style="position:absolute; left:250px; top:300px;width:25%;cursor:pointer" src="images/bunsenoff.png" />
+	<img id="can1-2" style="position:absolute; left:160px; top:252px;cursor:pointer;visibility:hidden" src="images/sample.png" />
+	<img id="can1-3" style="position:absolute; left:0px; top:250px;cursor:pointer;visibility:hidden" src="images/bitPour.png" />
+	<img id="can1-4" style="position:absolute; left:295px; top:80px;cursor:pointer;visibility:hidden" src="images/thermometer.png" />
+	<img id="can1-6" style="position:absolute; left:476.8px; top:180px;cursor:pointer;visibility:hidden" src="images/moveZoom.png" />
+	<img id="can1-5" style="position:absolute; left:450px; top:80px;cursor:pointer;visibility:hidden" src="images/thermZoom.png" />
+	<img id="can1-10" style="position:absolute; left:202px; top:300px;cursor:pointer;visibility:hidden" src="images/bitMove.png" />
+	<img id="can1-7" style="position:absolute; left:300px; top:180px;cursor:pointer;visibility:hidden" src="images/bitPour2s.png" />
+	<img id="can1-9" style="position:absolute; left:200px; top:280px;cursor:pointer;visibility:hidden" src="images/mould.png" />
+	<img id="can1-8" style="position:absolute; left:210px; top:198px;cursor:pointer;visibility:hidden" src="images/tiltsample.png" />
+	<img id="can1-8a" style="position:absolute; left:200px; top:280px;cursor:pointer;visibility:hidden" src="images/sample.png" />
+	<img id="can1-12" style="position:absolute; left:250px; top:150px;cursor:pointer;width:60%;visibility:hidden" src="images/waterbath2.png" />
+	<img id="can1-11" style="position:absolute; left:20px; top:280px;cursor:pointer;visibility:hidden" title="Transfer Dish" src="images/emptyDish.png" />
+	<img id="can1-11a" style="position:absolute; left:20px; top:280px;cursor:pointer;visibility:hidden" title="Transfer Dish" src="images/emptyDishWIthMould.png" />
+	<!-- <p id="bitSample" style="position:absolute;left:0px;top:150px;font-family:verdana;font-size:14px;padding:5px;background-color:black;color:white;visibility:hidden;border-radius:5px">Grade of bitumen sample used here is: S125</p> -->
+</div>
+
+<div class="simsubscreen" id="canvas2" style="visibility:hidden;" >
+	<strong class="incanvas">STEP</strong>
+	<span class="circlebg">&nbsp;2&nbsp;</span>
+	<p class="steptext">&nbsp;Place the sample in position. Adjust the needle to touch the surface of the sample.</p>
+	<img id="can2-1" style="position:absolute; left:100px; top:80px;width:26%;cursor:pointer" src="images/seperateStand.png" />
+	<img id="can2-4" style="position:absolute; left:20px; top:420px;cursor:pointer" src="images/sample.png" />
+	<img id="can2-2" style="position:absolute; left:207px; top:180px;cursor:pointer" src="images/movePart.png" />
+	<img id="can2-3" style="position:absolute; left:160px; top:90px;width:17%;cursor:pointer" src="images/dialWithoutNeedle.png" />
+	<!-- <img id="can2-4" style="position:absolute; left:185px; top:370px;cursor:pointer" src="images/sample.png" /> -->
+	<img id="can2-5" style="position:absolute; left:222px; top:136px;cursor:pointer" src="images/needle.png" />
+
+	<!-- <img id="can2-2" style="position:absolute; left:160px; top:90px;width:17%;cursor:pointer" src="images/dialStand2.png" /> -->
+	<img id="can2-6" style="position:absolute; left:350px; top:300px;width:0.6%;cursor:pointer;visibility:hidden" src="images/aparatusNeedle.png" />
+	<img id="can2-6a" style="position:absolute; left:350px; top:300px;width:6%;cursor:pointer;visibility:hidden" src="images/handNeedle.png" />
+	<img id="can2-7a" style="position:absolute; left:320px; top:175px;cursor:pointer;visibility:hidden" src="images/zoomRotate.png" />
+	<img id="can2-7b" style="position:absolute; left:350px; top:250px;cursor:pointer;visibility:hidden" src="images/hv.png" />
+	
+	<img id="can2-8a" style="position:absolute; left:350px; top:292px;cursor:pointer;visibility:hidden" src="images/setZoom.png" />
+	<img id="can2-8c" style="position:absolute; left:390px; top:260px;cursor:pointer;visibility:hidden" src="images/mvZoom.png" />
+	<img id="can2-8b" style="position:absolute; left:350px; top:250px;cursor:pointer;visibility:hidden" src="images/coverZoom.png" />
+	<label for="r" style="position:absolute; left:300px; top:350px;cursor:pointer;font-family:verdana;font-size:14px;visibility:hidden" orient = "vertical">Set the needle : <input id="r" type="range" style="padding:-15px;cursor:grab;" name="foo" min=260 max=275 step=1 value=260 onchange="setReadingPart(this);" autocomplete="off"></label>
+	<p id="v2-1" style="position:absolute; left:450px; top:350px;font-family:verdana; font-size:14px;color:red;visibility:hidden">Needle is in position with sample.</p>
+	
+</div>
+
+<div class="simsubscreen" id="canvas3" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;3&nbsp;</span>
+<p class="steptext">&nbsp;Make the pointer of the dial to read zero. Release the needle for exactly five seconds.</p>
+	<img id="can3-1" style="position:absolute; left:100px; top:80px;width:26%;cursor:pointer" src="images/seperateStand.png" />
+	<img id="can3-4" style="position:absolute; left:185px; top:370px;cursor:pointer" src="images/sample.png" />
+	<img id="can3-2" style="position:absolute; left:207px; top:195px;cursor:pointer" src="images/movePart2.png" />
+	<img id="can3-3" style="position:absolute; left:160px; top:90px;width:17%;cursor:pointer" src="images/dialWithoutNeedle.png" />
+	<!-- <img id="can2-4" style="position:absolute; left:185px; top:370px;cursor:pointer" src="images/sample.png" /> -->
+	<img id="can3-5" style="position:absolute; left:222px; top:136px;cursor:pointer" src="images/needle.png" />
+
+	<!-- <img id="can2-2" style="position:absolute; left:160px; top:90px;width:17%;cursor:pointer" src="images/dialStand2.png" /> -->
+	<img id="can3-7a" style="position:absolute; left:320px; top:175px;cursor:pointer;visibility:hidden" src="images/zoomRotate.png" />
+	<img id="can3-7b" style="position:absolute; left:350px; top:250px;cursor:pointer;visibility:hidden" src="images/hv.png" />
+	<img id="can3-8" style="position:absolute; left:20px; top:370px;cursor:pointer;width:10%;visibility:hidden" src="images/dot0.png" />
+	<table id="result" border = "1px" style="position:absolute;left:350px;top:85px;font-family:verdana;font-size:14px;text-align:center;width:50%;visibility:hidden" >
+		<tr>
+			<td>Trial No</td>
+			<td>Initial Reading(mm)</td>
+			<td>Final Reading(mm) </td>
+			<td>Penetration Value(mm)</td>
+		</tr>
+	</table>
+	
+	
+	<img id="can3-9a" style="position:absolute; left:350px; top:292px;cursor:pointer;visibility:hidden" src="images/setZoom.png" />
+	<img id="can3-9c" style="position:absolute; left:390px; top:275px;cursor:pointer;visibility:hidden" src="images/mvZoom.png" />
+	<img id="can3-9b" style="position:absolute; left:350px; top:250px;cursor:pointer;visibility:hidden" src="images/coverZoom.png" />
+	<label for="s" style="position:absolute; left:300px; top:350px;cursor:pointer;font-family:verdana;font-size:14px;visibility:hidden" orient = "vertical">Set the needle : <input id="s" type="range" style="padding:-15px;cursor:grab;" name="foo" min=260 max=275 step=1 value=275 onchange="setReadingPart2(this);" autocomplete="off"></label>
+	<p id="v3-1" style="position:absolute; left:450px; top:250px;font-family:verdana; font-size:14px;color:red;visibility:hidden">Move needle to initial position</p>
+</div>
+
+<div id="canvas4" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;4&nbsp;</span>
+<p class="steptext">&nbsp;Observation and Results.</p>
+	<table id="finalResult" border = "1px" style="position:absolute;left:50px;top:50px;font-family:verdana;font-size:14px;text-align:center;width:75%" >
+		<tr>
+			<td>Trial No</td>
+			<td>Initial Reading(mm)</td>
+			<td>Final Reading(mm)</td>
+			<td>Penetration Value(mm)</td>
+		</tr>
+	</table>
+	<h4 id="p8-1" border="1px solid black" style="position:absolute;left:-450px; top:250px;font-family:verdana;visibility:hidden;text-align:justify">According to IRC, Bitumen grades 60/70 and 80/100 is suitable for bituminous macadam and penetration macadam. Hence this sample of bitumen is suitable for road construction.</h4>
+
+</div>
+
+
+<span id="tooltip-span"></span>
+
+<div id="">	
+<p id="trial" style="text-transform: uppercase;visibility :hidden;font-weight: bold;font-family:verdana; font-size:14px;"><strong>Trial = </strong></p>
+</div>
+
+<!-- nextButton -->
+<div id="nav">
+<img id="nextButton" onclick="navNext()" src="images/Next.png" />
+</div>
+
+<!-- dialog division -->
+<span id="dialog-div" style="text-align:justify;border-radius: 5px">
+	 <p id="divp" style="font-family:verdana; font-size:14px;padding: 5px">Both ends of the pipe must be trimmed to ensure parallel faces.</p>
+	 <input type="button" style="cursor:pointer;border-radius: 5px;margin: 0 auto; padding: 0;display: inline-block;text-align: center;" value="OK" onclick = "hideDialog();">
+</span>
+
+
+<!-- This is the questions division -->
+<span id="question-div">
+	 <p id="divq" style="font-family:verdana; font-size:14px;">Both ends of the pipe must be trimmed to ensure parallel faces.</p>
+	 <!-- <input type="button" style="cursor:pointer" value="OK" onclick = "evaluateAnswer();"> -->
+	 <p id="ans"></p>
+</span>
+ 
+<!--Blinking Arrow	-->	
+<img class ="" id="arrow1" style="visibility:hidden;" src="images/arrow1.png"/>
+
+<div id="copyright"> &copy; 2018 - <script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+
+</div>
+</body> 
 </html>
