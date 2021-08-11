@@ -1,0 +1,50 @@
+[{
+    "question": "To prevent occurance of excessive brittleness in colder region, the bitumen grade used is",
+    "answers": {
+      "a": "30/40",
+      "b": "60/70",
+      "c": "80/100",
+      "d": "180/200"
+    },
+    "correctAnswer": "d"
+  },
+  {
+    "question": "Lower penetration grades are preferred in",
+    "answers": {
+      "a": "Humid region",
+      "b": "Warmer region",
+      "c": "Colder region",
+      "d": "Anywhere"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "The penetration is measured for every?",
+    "answers": {
+      "a": "6 seconds",
+      "b": "5 seconds",
+      "c": "3 seconds",
+      "d": "2 seconds"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "For bituminous macadam, IRC suggests bitumen grades of_____",
+    "answers": {
+      "a": "80/100",
+      "b": "180/100",
+      "c": "80/180",
+      "d": "80/200"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Penetration test on bitumen is used for determining",
+    "answers": {
+      "a": "Grade of the bitumen",
+      "b": "Viscosity of the bitumen",
+      "c": "Ductility of the bitumen",
+      "d": "Temperature susceptibility of the bitumen"
+    },
+    "correctAnswer": "a"
+}]
